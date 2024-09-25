@@ -924,7 +924,7 @@ export interface ApiWebsiteWebsite extends Schema.CollectionType {
     is_template: Attribute.Boolean;
     price: Attribute.Decimal;
     template_label: Attribute.String;
-    slug: Attribute.String;
+    slug: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
