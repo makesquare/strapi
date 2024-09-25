@@ -4,7 +4,8 @@
   "info": {
     "singularName": "section",
     "pluralName": "sections",
-    "displayName": "Section"
+    "displayName": "Section",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,34 +24,37 @@
       "target": "api::tag.tag"
     },
     "desktop": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "mobile": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "video": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "title": {
       "type": "string"
@@ -60,6 +64,11 @@
     },
     "url": {
       "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "unique": true,
+      "required": true
     }
   }
 }

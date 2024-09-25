@@ -794,6 +794,7 @@ export interface ApiSectionSection extends Schema.CollectionType {
     singularName: 'section';
     pluralName: 'sections';
     displayName: 'Section';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -815,6 +816,7 @@ export interface ApiSectionSection extends Schema.CollectionType {
     title: Attribute.String;
     description: Attribute.Text;
     url: Attribute.String;
+    slug: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -922,6 +924,7 @@ export interface ApiWebsiteWebsite extends Schema.CollectionType {
     is_template: Attribute.Boolean;
     price: Attribute.Decimal;
     template_label: Attribute.String;
+    slug: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

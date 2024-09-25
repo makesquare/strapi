@@ -73,6 +73,9 @@
     },
     "template_label": {
       "type": "string"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }
