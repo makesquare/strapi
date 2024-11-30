@@ -788,6 +788,36 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiBlogBlog extends Schema.CollectionType {
+  collectionName: 'blogs';
+  info: {
+    singularName: 'blog';
+    pluralName: 'blogs';
+    displayName: 'Blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Slug: Attribute.UID<'api::blog.blog', 'Title'>;
+    Subtitle: Attribute.String;
+    Content: Attribute.Blocks;
+    Tags: Attribute.JSON;
+    Cover: Attribute.Media;
+    SEOMetadata: Attribute.JSON;
+    ReadingTime: Attribute.String;
+    Author: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -837,7 +867,6 @@ export interface ApiNoteNote extends Schema.CollectionType {
     Content: Attribute.Blocks;
     Excerpt: Attribute.Text;
     Cover: Attribute.Media;
-    Status: Attribute.Enumeration<['Draft', 'Published']>;
     Category: Attribute.Relation<
       'api::note.note',
       'oneToOne',
@@ -846,6 +875,7 @@ export interface ApiNoteNote extends Schema.CollectionType {
     Tags: Attribute.Relation<'api::note.note', 'manyToMany', 'api::tag.tag'>;
     SEOTitle: Attribute.String;
     SEODescription: Attribute.Text;
+    ReadingTime: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -880,6 +910,92 @@ export interface ApiTagTag extends Schema.CollectionType {
   };
 }
 
+export interface ApiTemplateTemplate extends Schema.CollectionType {
+  collectionName: 'templates';
+  info: {
+    singularName: 'template';
+    pluralName: 'templates';
+    displayName: 'Template';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Subtitle: Attribute.String;
+    Slug: Attribute.UID<'api::template.template', 'Title'>;
+    Description: Attribute.Text;
+    Features: Attribute.JSON;
+    Preview: Attribute.String;
+    Buy: Attribute.String;
+    Tags: Attribute.JSON;
+    Cover: Attribute.Media;
+    Media: Attribute.Media;
+    ReleaseDate: Attribute.Date;
+    SEOMeta: Attribute.JSON;
+    OriginalPrice: Attribute.Decimal;
+    DiscountedPrice: Attribute.Decimal;
+    PercentageDiscount: Attribute.Integer;
+    SaleActive: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::template.template',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::template.template',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWebsiteWebsite extends Schema.CollectionType {
+  collectionName: 'websites';
+  info: {
+    singularName: 'website';
+    pluralName: 'websites';
+    displayName: 'Website';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Slug: Attribute.UID<'api::website.website', 'Title'>;
+    Client: Attribute.String;
+    Description: Attribute.Blocks;
+    Link: Attribute.String;
+    Subtitle: Attribute.String;
+    Features: Attribute.JSON;
+    Cover: Attribute.Media;
+    Media: Attribute.Media;
+    Tags: Attribute.JSON;
+    DatePublished: Attribute.Date;
+    SEOMetadata: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::website.website',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::website.website',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -898,9 +1014,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
       'api::note.note': ApiNoteNote;
       'api::tag.tag': ApiTagTag;
+      'api::template.template': ApiTemplateTemplate;
+      'api::website.website': ApiWebsiteWebsite;
     }
   }
 }

@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "templates",
+  "info": {
+    "singularName": "template",
+    "pluralName": "templates",
+    "displayName": "Template"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Features": {
+      "type": "json"
+    },
+    "Preview": {
+      "type": "string"
+    },
+    "Buy": {
+      "type": "string"
+    },
+    "Tags": {
+      "type": "json"
+    },
+    "Cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "ReleaseDate": {
+      "type": "date"
+    },
+    "SEOMeta": {
+      "type": "json"
+    },
+    "OriginalPrice": {
+      "type": "decimal"
+    },
+    "DiscountedPrice": {
+      "type": "decimal"
+    },
+    "PercentageDiscount": {
+      "type": "integer"
+    },
+    "SaleActive": {
+      "type": "boolean"
+    }
+  }
+}

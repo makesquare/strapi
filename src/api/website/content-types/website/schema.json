@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "websites",
+  "info": {
+    "singularName": "website",
+    "pluralName": "websites",
+    "displayName": "Website"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "Client": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "Features": {
+      "type": "json"
+    },
+    "Cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "Tags": {
+      "type": "json"
+    },
+    "DatePublished": {
+      "type": "date"
+    },
+    "SEOMetadata": {
+      "type": "json"
+    }
+  }
+}
