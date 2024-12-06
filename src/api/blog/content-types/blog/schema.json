@@ -4,7 +4,8 @@
   "info": {
     "singularName": "blog",
     "pluralName": "blogs",
-    "displayName": "Blog"
+    "displayName": "Blog",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -28,14 +29,15 @@
       "type": "json"
     },
     "Cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "SEOMetadata": {
       "type": "json"
@@ -45,6 +47,9 @@
     },
     "Author": {
       "type": "string"
+    },
+    "PublicationDate": {
+      "type": "date"
     }
   }
 }

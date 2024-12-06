@@ -55,6 +55,9 @@
     },
     "ReadingTime": {
       "type": "string"
+    },
+    "PublicationDate": {
+      "type": "date"
     }
   }
 }

@@ -794,6 +794,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     singularName: 'blog';
     pluralName: 'blogs';
     displayName: 'Blog';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -808,6 +809,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     SEOMetadata: Attribute.JSON;
     ReadingTime: Attribute.String;
     Author: Attribute.String;
+    PublicationDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -876,6 +878,7 @@ export interface ApiNoteNote extends Schema.CollectionType {
     SEOTitle: Attribute.String;
     SEODescription: Attribute.Text;
     ReadingTime: Attribute.String;
+    PublicationDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
